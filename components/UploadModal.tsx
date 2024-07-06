@@ -59,6 +59,7 @@ const UploadModal = () => {
 
             if(songError) {
                 setIsLoading(false);
+                console.log(songError);
                 return toast.error('Failed song upload.');
             }
 
@@ -114,7 +115,7 @@ const UploadModal = () => {
     return (
         <Modal 
         title="Add a song" 
-        description="Upload a wav, flac, or mp3 file" 
+        description="Upload a wav, flac, m4a, or mp3 file" 
         isOpen={uploadModal.isOpen}
         onChange={onChange}>
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-4">
@@ -136,7 +137,7 @@ const UploadModal = () => {
                 id="song"
                 type="file"
                 disabled={isLoading}
-                accept=".mp3, .wav, .flac"
+                accept=".mp3, .wav, .flac, .m4a"
                 {...register('song', {required: true})}/>
                 </div>
                 <div>
