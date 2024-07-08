@@ -2,6 +2,7 @@
 
 import LikeButton from "@/components/LikeButton";
 import MediaItem from "@/components/MediaItem";
+import PlayButton from "@/components/PlayButton";
 import useOnPlay from "@/hooks/useOnPlay";
 import { Song } from "@/types";
 

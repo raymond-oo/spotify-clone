@@ -10,6 +10,7 @@ import Slider from "./Slider";
 import usePlayer from "@/hooks/usePlayer";
 import { useEffect, useState } from "react";
 import useSound from "use-sound";
+import { FiVolume, FiVolume1, FiVolume2, FiVolumeX } from "react-icons/fi";
 
 interface PlayerContentProps {
     song: Song;
@@ -25,7 +26,15 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
     const [isPlaying, setIsPlaying] = useState(false);
 
     const Icon = isPlaying ? BsPauseFill : BsPlayFill;
-    const VolumeIcon = volume === 0 ? HiSpeakerXMark : HiSpeakerWave
+    const VolumeIcon = volume === 0 
+    ? FiVolumeX
+    : volume > 0.75
+    ? FiVolume2
+    : volume < 0.75 && volume > 0.25
+    ? FiVolume1
+    : volume < 0.25
+    ? FiVolume
+    : FiVolume1;
 
     const onPlayNext = () => {
         if(player.ids.length === 0) {
